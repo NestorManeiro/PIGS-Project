@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".formregister">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="59dp"
+        android:layout_marginBottom="409dp"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="399dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/icono"
+            tools:ignore="ImageContrastCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/centerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="39dp"
+        android:layout_marginBottom="202dp"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <EditText
+            android:id="@+id/usernameform"
+            android:layout_width="255dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="e-mail"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/passwordform"
+            android:layout_width="255dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/restaurantNameForm"
+            app:layout_constraintVertical_bias="0.07" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="131dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#68dbdf"
+            android:text="Register"
+            app:cornerRadius="4dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="140dp" />
+    </LinearLayout>
+</RelativeLayout>

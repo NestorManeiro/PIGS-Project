@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PIGS</string>
+    <string name="prefs_file" />
 </resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="59dp"
+        android:layout_marginBottom="409dp"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="O"
+            android:src="@drawable/icono"
+            tools:ignore="ImageContrastCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/googleSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/registertxt"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="41dp"
+        app:srcCompat="@drawable/google" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="353dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="13dp"
+        android:text="By continuing, you agree to our Terms and conditions and Privacy Policy"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/registertxt"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="197dp"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textColor="#68dbdf"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="316dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="164dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginEnd="30dp"
+            android:text="Have an account already?"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/logintxt"
+            android:layout_width="83dp"
+            android:layout_height="match_parent"
+
+            android:layout_centerInParent="true"
+            android:text="Log In"
+            android:textColor="#68dbdf"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
