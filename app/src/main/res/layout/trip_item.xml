@@ -42,6 +42,13 @@
             android:text="Hora de salida"
             android:textSize="14sp" />
 
+        <TextView
+            android:id="@+id/tv_departure_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de salida"
+            android:textSize="14sp" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

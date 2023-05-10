@@ -3,13 +3,12 @@ package pmn.dev.pigs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 
-class formregister : AppCompatActivity() {
+class FormRegister : AppCompatActivity() {
     private lateinit var register: TextView
     private lateinit var usernameform: EditText
     private lateinit var passwordform: EditText

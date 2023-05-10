@@ -21,6 +21,7 @@ class TripAdapter(private val tripList: List<Trip>) : RecyclerView.Adapter<TripA
         holder.departureLocation.text = currentItem.departureLocation
         holder.destinationLocation.text = currentItem.destinationLocation
         holder.departureTime.text = currentItem.departureTime
+        holder.departureDate.text = currentItem.departureDate
     }
 
     override fun getItemCount(): Int {
@@ -32,5 +33,6 @@ class TripAdapter(private val tripList: List<Trip>) : RecyclerView.Adapter<TripA
         val departureLocation: TextView = itemView.findViewById(R.id.tv_departure_location)
         val destinationLocation: TextView = itemView.findViewById(R.id.tv_destination_location)
         val departureTime: TextView = itemView.findViewById(R.id.tv_departure_time)
+        val departureDate: TextView = itemView.findViewById(R.id.tv_departure_date)
     }
 }

@@ -4,5 +4,6 @@ data class Trip(
     val driverName: String,
     val departureLocation: String,
     val destinationLocation: String,
-    val departureTime: String
+    val departureTime: String,
+    val departureDate: String
 )

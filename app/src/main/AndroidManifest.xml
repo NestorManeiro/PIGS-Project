@@ -17,10 +17,10 @@
         android:theme="@style/Theme.PIGS"
         tools:targetApi="31">
         <activity
-            android:name=".formregister"
+            android:name=".FormRegister"
             android:exported="false" />
         <activity
-            android:name=".formlogin"
+            android:name=".FormLogin"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
