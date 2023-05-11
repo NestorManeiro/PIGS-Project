@@ -2,20 +2,32 @@ package pmn.dev.pigs
 
 import FilterPagerAdapter
 import TripAdapter
+import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
 import com.jakewharton.threetenabp.AndroidThreeTen
 import pmn.dev.pigs.model.Trip
 import java.time.Duration
@@ -23,7 +35,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
-import kotlin.math.absoluteValue
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -36,6 +48,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var filterContainer: ConstraintLayout
     private var tripsList: List<Trip> = ArrayList()
     private lateinit var filterPagerAdapter: FilterPagerAdapter
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         filterButton = findViewById(R.id.btn_show_filter)
         filterContainer = findViewById(R.id.filter_container)
-
         // Crear una lista de viajes de ejemplo
         tripsList = createSampleTrips()
 
@@ -58,8 +71,25 @@ class MainActivity : AppCompatActivity() {
         filterButton.setOnClickListener {
             showFilter()
         }
-    }
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = "RideMate"
 
+        val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            Log.d("MainActivity", "Item seleccionado: ${menuItem.title}")
+            // Resto del código del listener del menú
+            true
+        }
+
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (item.itemId == android.R.id.home) {
+            // Manejar la selección del ítem del menú hamburguesa aquí
+            true
+        } else super.onOptionsItemSelected(item)
+    }
     private fun createSampleTrips(): List<Trip> {
         return listOf(
             Trip("John Doe", "Universidad", "Centro de la ciudad", "08:00", "11-05-2023"),
@@ -138,6 +168,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun resetFilter() {
+        if (!::datePickerFilter.isInitialized) {
+            // Inicializar datePickerFilter con fecha actual si aún no ha sido inicializado
+            val today = LocalDate.now()
+            datePickerFilter = DatePicker(this)
+            datePickerFilter.updateDate(today.year, today.monthValue - 1, today.dayOfMonth)
+        }
         locationFilter.setText("")
         val today = LocalDate.now()
         datePickerFilter.updateDate(today.year, today.monthValue - 1, today.dayOfMonth)

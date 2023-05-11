@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">PIGS</string>
     <string name="prefs_file" />
+    <string name="navigation_drawer_open">hola</string>
+    <string name="navigation_drawer_close">adios</string>
+    <string name="apply">Apply</string>
+    <string name="restore">Restore</string>
 </resources>
