@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
@@ -75,21 +76,44 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "RideMate"
-
-        val navigationView = findViewById<NavigationView>(R.id.navigation_view)
-        navigationView.setNavigationItemSelectedListener { menuItem ->
-            Log.d("MainActivity", "Item seleccionado: ${menuItem.title}")
-            // Resto del código del listener del menú
-            true
-        }
-
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (item.itemId == android.R.id.home) {
-            // Manejar la selección del ítem del menú hamburguesa aquí
-            true
-        } else super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.menu_item0 -> {
+                val nextpage = Intent( this, MainActivity::class.java);
+                startActivity(nextpage);
+                finish();
+                return true
+            }
+            R.id.menu_item1 -> {
+                val nextpage = Intent( this, mytrips::class.java);
+                startActivity(nextpage);
+                finish();
+                return true
+            }
+            R.id.menu_item2 -> {
+                val nextpage = Intent( this, mypoints::class.java);
+                startActivity(nextpage);
+                finish();
+                return true
+            }
+            R.id.menu_item3 -> {
+                val nextpage = Intent( this, LoginActivity::class.java);
+                startActivity(nextpage);
+                finish();
+                return true
+            }
+            // Agrega más casos aquí si tienes más elementos de menú
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
+
     private fun createSampleTrips(): List<Trip> {
         return listOf(
             Trip("John Doe", "Universidad", "Centro de la ciudad", "08:00", "11-05-2023"),
