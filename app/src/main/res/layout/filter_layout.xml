@@ -16,7 +16,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1" />
 
     <LinearLayout
@@ -29,16 +29,16 @@
             android:id="@+id/btn_apply_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aplicar"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:text="Apply" />
 
         <Button
             android:id="@+id/btn_reset_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Restablecer"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp" />
+            android:text="Restore" />
     </LinearLayout>
 </LinearLayout>

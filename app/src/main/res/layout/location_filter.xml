@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -9,6 +10,7 @@
         android:id="@+id/et_location_filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Filtrar por lugar" />
+        android:backgroundTint="#FFFFFF"
+        android:hint="Filter by destination" />
 
 </LinearLayout>

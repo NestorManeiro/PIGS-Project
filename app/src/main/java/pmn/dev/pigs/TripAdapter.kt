@@ -17,11 +17,12 @@ class TripAdapter(private val tripList: List<Trip>) : RecyclerView.Adapter<TripA
     override fun onBindViewHolder(holder: TripViewHolder, position: Int) {
         val currentItem = tripList[position]
 
-        holder.driverName.text = currentItem.driverName
-        holder.departureLocation.text = currentItem.departureLocation
-        holder.destinationLocation.text = currentItem.destinationLocation
-        holder.departureTime.text = currentItem.departureTime
-        holder.departureDate.text = currentItem.departureDate
+        holder.driverName.text = "" + currentItem.driverName
+        holder.departureLocation.text = "Departure: " + currentItem.departureLocation
+        holder.destinationLocation.text = "Destination: " + currentItem.destinationLocation
+        holder.departureTime.text = "Time: " + currentItem.departureTime
+        holder.departureDate.text = "Date: " + currentItem.departureDate
+
     }
 
     override fun getItemCount(): Int {

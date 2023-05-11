@@ -14,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.jakewharton.threetenabp.AndroidThreeTen
 import pmn.dev.pigs.model.Trip
@@ -27,7 +28,7 @@ import kotlin.math.absoluteValue
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var tripAdapter: TripAdapter
-    private lateinit var filterButton: Button
+    private lateinit var filterButton: FloatingActionButton
     internal lateinit var locationFilter: EditText
     internal lateinit var timePickerFilter: TimePicker
     internal lateinit var datePickerFilter: DatePicker
@@ -119,9 +120,9 @@ class MainActivity : AppCompatActivity() {
             viewPager.adapter = filterPagerAdapter
 
             tabLayout.setupWithViewPager(viewPager)
-            tabLayout.getTabAt(0)?.text = "Ubicación"
-            tabLayout.getTabAt(1)?.text = "Hora"
-            tabLayout.getTabAt(2)?.text = "Fecha"
+            tabLayout.getTabAt(0)?.text = "Destination"
+            tabLayout.getTabAt(1)?.text = "Hour"
+            tabLayout.getTabAt(2)?.text = "Date"
 
             applyFilterButton.setOnClickListener {
                 applyFilter()
