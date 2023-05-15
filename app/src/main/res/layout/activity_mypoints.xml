@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypoints">
+    tools:context=".MyPoints">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#68dbdf"/>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#68dbdf"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/pointsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Puntos: 200"
+                android:textSize="24sp"
+                android:layout_marginBottom="16dp" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <Button
+                android:id="@+id/rewardButton1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Menú del día en el comedor por 150 puntos" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/rewardButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Camiseta de la ULPGC por 500 puntos" />
+
+            <Button
+                android:id="@+id/rewardButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 horas en Sitycleta por 1000 puntos" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

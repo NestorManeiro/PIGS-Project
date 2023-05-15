@@ -2,11 +2,8 @@ package pmn.dev.pigs
 
 import FilterPagerAdapter
 import TripAdapter
-import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -19,16 +16,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.auth.FirebaseAuth
 import com.jakewharton.threetenabp.AndroidThreeTen
 import pmn.dev.pigs.model.Trip
 import java.time.Duration
@@ -92,13 +85,13 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.menu_item1 -> {
-                val nextpage = Intent( this, mytrips::class.java);
+                val nextpage = Intent( this, MyTrips::class.java);
                 startActivity(nextpage);
                 finish();
                 return true
             }
             R.id.menu_item2 -> {
-                val nextpage = Intent( this, mypoints::class.java);
+                val nextpage = Intent( this, MyPoints::class.java);
                 startActivity(nextpage);
                 finish();
                 return true

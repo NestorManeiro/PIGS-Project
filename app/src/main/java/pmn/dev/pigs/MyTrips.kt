@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import pmn.dev.pigs.model.Trip
 
-class mytrips : AppCompatActivity() {
+class MyTrips : AppCompatActivity() {
 
     private val tripArray = ArrayList<Trip>()
     private lateinit var adapter: TripAdapter
@@ -49,13 +49,13 @@ class mytrips : AppCompatActivity() {
                 return true
             }
             R.id.menu_item1 -> {
-                val nextpage = Intent(this, mytrips::class.java)
+                val nextpage = Intent(this, MyTrips::class.java)
                 startActivity(nextpage)
                 finish()
                 return true
             }
             R.id.menu_item2 -> {
-                val nextpage = Intent(this, mypoints::class.java)
+                val nextpage = Intent(this, MyPoints::class.java)
                 startActivity(nextpage)
                 finish()
                 return true
