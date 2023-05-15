@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         tripsList = createSampleTrips()
 
         // Establecer el adaptador personalizado
-        tripAdapter = TripAdapter(tripsList)
+        tripAdapter = TripAdapter(this,tripsList)
         recyclerView.adapter = tripAdapter
 
         filterButton.setOnClickListener {
@@ -204,7 +204,7 @@ class MainActivity : AppCompatActivity() {
         timePickerFilter.hour = 0
         timePickerFilter.minute = 0
 
-        tripAdapter = TripAdapter(tripsList)
+        tripAdapter = TripAdapter(this,tripsList)
         recyclerView.adapter = tripAdapter
     }
 
@@ -253,9 +253,9 @@ class MainActivity : AppCompatActivity() {
                 "No se encontraron viajes con los filtros aplicados, mostrando todos los viajes",
                 Toast.LENGTH_SHORT
             ).show()
-            tripAdapter = TripAdapter(tripsList)
+            tripAdapter = TripAdapter(this,tripsList)
         } else {
-            tripAdapter = TripAdapter(filteredTrips)
+            tripAdapter = TripAdapter(this,filteredTrips)
         }
 
         recyclerView.adapter = tripAdapter
