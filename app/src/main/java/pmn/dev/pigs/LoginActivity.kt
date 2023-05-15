@@ -20,7 +20,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setup(){
         logintxt.setOnClickListener{
-            val nextpage = Intent( this, FormLogin::class.java);
+            val nextpage = Intent( this, LoginActivity::class.java);
+            //val nextpage = Intent( this, MainActivity::class.java);
             startActivity(nextpage);
             finish();
         }

@@ -13,7 +13,14 @@ import pmn.dev.pigs.R
 import pmn.dev.pigs.model.Trip
 
 class TripAdapter(private val context: Context, private val tripList: List<Trip>) : RecyclerView.Adapter<TripAdapter.TripViewHolder>() {
-    private val tripArray = ArrayList<Trip>()
+    companion object {
+        val tripArray = ArrayList<Trip>()
+    }
+
+    fun getTripArray(): ArrayList<Trip> {
+        return tripArray
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripViewHolder {
         val itemView = LayoutInflater.from(context).inflate(R.layout.trip_item, parent, false)
         return TripViewHolder(itemView)
@@ -51,7 +58,7 @@ class TripAdapter(private val context: Context, private val tripList: List<Trip>
         val departureTime: TextView = itemView.findViewById(R.id.tv_departure_time)
         val departureDate: TextView = itemView.findViewById(R.id.tv_departure_date)
     }
-
+    private var tripAddedListener: OnTripAddedListener? = null
     private fun showPopup(newTrip: Trip) {
         val inflater = LayoutInflater.from(context)
         val popupView = inflater.inflate(R.layout.popup_layout, null)
@@ -71,12 +78,22 @@ class TripAdapter(private val context: Context, private val tripList: List<Trip>
 
         // Configura el comportamiento del botón en el popup
         button.setOnClickListener {
-
             tripArray.add(newTrip)
+            notifyDataSetChanged()
             popupWindow.dismiss()
         }
+
 
         // Muestra el popup en una posición relativa al elemento clicado
         popupWindow.showAsDropDown(button)
     }
+
+
+    interface OnTripAddedListener {
+        fun onTripAdded(trip: Trip)
+    }
+    fun setOnTripAddedListener(listener: OnTripAddedListener) {
+        tripAddedListener = listener
+    }
+
 }
